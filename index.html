@@ -15,10 +15,10 @@
 
 <script type="text/javascript">var submitted=false;</script>
 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" 
-onload="if(submitted) {alert('SENT!'); document.getElementById('form').reset();}"></iframe>
+onload="if(submitted) {alert('SENT!');{var iframe = document.getElementById('table'); iframe.src = iframe.src;}; document.getElementById('form').reset();}"></iframe>
 
 <form id="form" action="https://docs.google.com/forms/d/e/1FAIpQLSe-M5uSl7e6LefOjmAhyXnBpBMQGvq6hj02ugduR4fKtMSwyw/formResponse" 
-method="post" target="hidden_iframe" onsubmit="submitted=true;{var iframe = document.getElementById('table'); iframe.src = iframe.src;};">
+method="post" target="hidden_iframe" onsubmit="submitted=true;">
 
       <label>Name</label>
       <input type="text" value="anonymous"  name="entry.534602257" required autocomplete="off">
@@ -34,7 +34,7 @@ method="post" target="hidden_iframe" onsubmit="submitted=true;{var iframe = docu
       <button  type="submit" id= "sub">Send</button>
 </form>
 <script>
- window.setInterval("reloadIFrame();", 60000);
+ window.setInterval("reloadIFrame();", 120000);
 
  function reloadIFrame() {var iframe = document.getElementById('table'); iframe.src = iframe.src;}
  </script> 
