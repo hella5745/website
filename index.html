@@ -4,7 +4,7 @@
 
 <TITLE>Randi</TITLE>
 <link rel="icon" type="image/gif/png" href="1.png">
-
+<script src="jquery-3.4.1.js"></script>
 </HEAD>
 
 <BODY>
@@ -36,8 +36,72 @@ method="post" target="hidden_iframe" onsubmit="submitted=true;">
  function reloadIFrame() {var iframe = document.getElementById('table'); iframe.src = iframe.src;}
  </script> 
       
-<iframe id="table" src="https://docs.google.com/spreadsheets/d/1cHny66AB5OqBxdi0a9-Ubm1-E3O-dpT3YdhkjNvEAWA/gviz/tq?tqx=out:html&tq&gid=96636668" style="border:none;width:100%; height:100%;"></iframe>
- 
+<script>
+var spreadUrl = 'https://spreadsheets.google.com/feeds/cells/1cHny66AB5OqBxdi0a9-Ubm1-E3O-dpT3YdhkjNvEAWA/1/public/values?alt=json-in-script&callback=doData';
+
+function AddResponseTable(posttime,postname,postcontent ,tableid) {
+    
+    
+  var txt1 = '<table id="table'+tableid+'"  style="width:100%" align="right"> <tr> <td><p>'+posttime+' '+postname+'</p></td> </tr> <tr> <td>'+postcontent+'</td> </tr> <tr> <td align="right">  </td> </tr> <tr> <td id= "insidetable'+tableid+'" align="right"> </td> </tr><tr><td><table style="width:100%" id="insidetable'+tableid+'"> </table></td></tr> </table>';              
+  
+
+$('BODY').prepend(txt1);
+}
+function doData(data) {
+
+    var results = [];
+
+    var entries = data.feed.entry;
+
+    var previousRow = 0;
+
+    for (var i = 0; i < entries.length; i++) {
+        var latestRow = results[results.length - 1];
+
+        var cell = entries[i];
+
+        var text = cell.content.$t;
+
+        var row = cell.gs$cell.row;
+
+        if (row > previousRow) {
+            var newRow = [];
+
+            newRow.push(text);
+
+            results.push(newRow);
+
+            previousRow++;
+        } else {
+            latestRow.push(text);
+        }
+            
+
+    }
+        handleResults(results);
+
+}
+
+function handleResults(spreadsheetArray) {
+    var i;
+for (i = 1; i < spreadsheetArray.length; i++) {
+  AddResponseTable(spreadsheetArray[i][0],spreadsheetArray[i][1],spreadsheetArray[i][2],i);
+}
+
+    
+
+
+}
+
+$.ajax({
+    url: spreadUrl,
+    jsonp: 'doData',
+    dataType: 'jsonp'
+});
+
+
+
+</script> 
 </BODY>
 
 </HTML>
