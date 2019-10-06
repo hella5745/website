@@ -7,7 +7,7 @@
 <script src="jquery-3.4.1.js"></script>
  
  </HEAD>
-<header>
+<header id ="this">
        <h1>Randi Website</h1>
 
 
@@ -42,7 +42,7 @@ function AddResponseTable(posttime,postname,postcontent ,tableid) {
   var txt1 = '<table id="table'+tableid+'"  style="width:100%" align="right"> <tr> <td><p>'+posttime+' '+postname+'</p></td> </tr> <tr> <td>'+postcontent+'</td> </tr> <tr> <td align="right">  </td> </tr> <tr> <td id= "insidetable'+tableid+'" align="right"> </td> </tr><tr><td><table style="width:100%" id="insidetable'+tableid+'"> </table></td></tr> </table>';              
   
 
-$('BODY').prepend(txt1);
+$(txt1).after("this");
 }
 function doData(data) {
 
