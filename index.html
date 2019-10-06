@@ -11,30 +11,6 @@
  </HEAD>
 
 <BODY>
-<div id ="this">
-       <h1>Randi Website</h1>
-
-
-
-<script type="text/javascript">var submitted=false;</script>
-<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" 
-onload="if(submitted) {alert('SENT!');location.reload(); document.getElementById('form').reset();}"></iframe>
-
-<form id="form" action="https://docs.google.com/forms/d/e/1FAIpQLSe-M5uSl7e6LefOjmAhyXnBpBMQGvq6hj02ugduR4fKtMSwyw/formResponse" 
-method="post" target="hidden_iframe" onsubmit="submitted=true;">
-
-      <label>Name</label>
-      <input type="text" value="anonymous"  name="entry.534602257" required autocomplete="off">
-  
-      <label>post</label>
-      <input type="text" placeholder="post" name="entry.809782" required autocomplete="off">
-   
-     
-    
-    
-      <button  type="submit" id= "sub">Send</button>
-</form>
- </div>
 <script>
 var spreadUrl = 'https://spreadsheets.google.com/feeds/cells/1cHny66AB5OqBxdi0a9-Ubm1-E3O-dpT3YdhkjNvEAWA/1/public/values?alt=json-in-script&callback=doData';
 
@@ -44,7 +20,7 @@ function AddResponseTable(posttime,postname,postcontent ,tableid) {
   var txt1 = '<table id="table'+tableid+'"  style="width:100%" align="right"> <tr> <td><p>'+posttime+' '+postname+'</p></td> </tr> <tr> <td>'+postcontent+'</td> </tr> <tr> <td align="right">  </td> </tr> <tr> <td id= "insidetable'+tableid+'" align="right"> </td> </tr><tr><td><table style="width:100%" id="insidetable'+tableid+'"> </table></td></tr> </table>';              
   
 
-$(txt1).after("this");
+$('#gg').prepend(txt1);
 }
 function doData(data) {
 
@@ -101,6 +77,33 @@ $.ajax({
 
 
 </script> 
+<div id ="this">
+       <h1>Randi Website</h1>
+
+
+
+<script type="text/javascript">var submitted=false;</script>
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" 
+onload="if(submitted) {alert('SENT!');location.reload(); document.getElementById('form').reset();}"></iframe>
+
+<form id="form" action="https://docs.google.com/forms/d/e/1FAIpQLSe-M5uSl7e6LefOjmAhyXnBpBMQGvq6hj02ugduR4fKtMSwyw/formResponse" 
+method="post" target="hidden_iframe" onsubmit="submitted=true;">
+
+      <label>Name</label>
+      <input type="text" value="anonymous"  name="entry.534602257" required autocomplete="off">
+  
+      <label>post</label>
+      <input type="text" placeholder="post" name="entry.809782" required autocomplete="off">
+   
+     
+    
+    
+      <button  type="submit" id= "sub">Send</button>
+</form>
+ </div>
+ <div id= "gg">
+</div>
+
 </BODY>
 
 </HTML>
