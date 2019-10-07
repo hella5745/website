@@ -17,7 +17,7 @@ var spreadUrl = 'https://spreadsheets.google.com/feeds/cells/1cHny66AB5OqBxdi0a9
 function AddResponseTable(posttime,postname,postcontent ,tableid) {
     
     
-  var txt1 = '<table id="table'+tableid+'"  style="width:100%" align="right"> <tr> <td><p>'+posttime+' '+postname+'</p></td> </tr> <tr> <td>'+postcontent+'</td> </tr> <tr> <td align="right">  </td> </tr> <tr> <td id= "insidetable'+tableid+'" align="right"> </td> </tr><tr><td><table style="width:100%" id="insidetable'+tableid+'"> </table></td></tr> </table>';              
+  var txt1 = '<table frame="box" id="table'+tableid+'"  style="width:100%" align="right"> <tr> <td><p>'+posttime+' '+postname+'</p></td> </tr> <tr> <td>'+postcontent+'</td> </tr> <tr> <td align="right">  </td> </tr> <tr> <td id= "insidetable'+tableid+'" align="right"> </td> </tr><tr><td><table style="width:100%" id="insidetable'+tableid+'"> </table></td></tr> </table>';              
   
 
 $('#gg').prepend(txt1);
