@@ -7,101 +7,34 @@
 <TITLE>Randi</TITLE>
 <link rel="icon" type="image/gif/png" href="1.png">
 <script src="jquery-3.4.1.js"></script>
+<script src="stuf.js"></script>
  
  </HEAD>
 
 <BODY>
-<script>
-var spreadUrl = 'https://spreadsheets.google.com/feeds/cells/1cHny66AB5OqBxdi0a9-Ubm1-E3O-dpT3YdhkjNvEAWA/1/public/values?alt=json-in-script&callback=doData';
 
-function AddResponseTable(posttime,postname,postcontent ,tableid) {
-    
-    
-  var txt1 = '<table frame="box" id="table'+tableid+'"  style="width:100%" align="right"> <tr> <td><p>'+posttime+' '+postname+'</p></td> </tr> <tr> <td>'+postcontent+'</td> </tr> <tr> <td align="right">  </td> </tr> <tr> <td id= "insidetable'+tableid+'" align="right"> </td> </tr><tr><td><table style="width:100%" id="insidetable'+tableid+'"> </table></td></tr> </table>';              
-  
-
-$('#gg').prepend(txt1);
-}
-function doData(data) {
-
-    var results = [];
-
-    var entries = data.feed.entry;
-
-    var previousRow = 0;
-
-    for (var i = 0; i < entries.length; i++) {
-        var latestRow = results[results.length - 1];
-
-        var cell = entries[i];
-
-        var text = cell.content.$t;
-
-        var row = cell.gs$cell.row;
-
-        if (row > previousRow) {
-            var newRow = [];
-
-            newRow.push(text);
-
-            results.push(newRow);
-
-            previousRow++;
-        } else {
-            latestRow.push(text);
-        }
-            
-
-    }
-        handleResults(results);
-
-}
-
-function handleResults(spreadsheetArray) {
-    var i;
-for (i = 1; i < spreadsheetArray.length; i++) {
-  AddResponseTable(spreadsheetArray[i][0],spreadsheetArray[i][1],spreadsheetArray[i][2],i);
-}
-
-    
-
-
-}
-
-$.ajax({
-    url: spreadUrl,
-    jsonp: 'doData',
-    dataType: 'jsonp'
-});
-
-
-
-</script> 
 <div id ="this">
        <h1>Randi Website</h1>
+ <iframe  hidden width="0" height="0" border="0" name="dummyframe" id="dummyframe"></iframe>
 
 
 
-<script type="text/javascript">var submitted=false;</script>
-<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" 
-onload="if(submitted) {alert('SENT!');location.reload(); document.getElementById('form').reset();}"></iframe>
-
-<form id="form" action="https://docs.google.com/forms/d/e/1FAIpQLSe-M5uSl7e6LefOjmAhyXnBpBMQGvq6hj02ugduR4fKtMSwyw/formResponse" 
-method="post" target="hidden_iframe" onsubmit="submitted=true;">
-
-      <label>Name</label>
-      <input type="text" value="anonymous"  name="entry.534602257" required autocomplete="off">
+<form onsubmit="this.submit();this.reset();return false;" autocomplete="off" action="https://script.google.com/macros/s/AKfycbwq47GU3D6MHCQW3qHJEjM02PakpoOu7mC-ABXASrTNYK14Su-w/exec" method="get" id="formin0" target="dummyframe" >
   
-      <label>post</label>
-      <input type="text" placeholder="post" name="entry.809782" required autocomplete="off">
-   
-     
-    
-    
-      <button  type="submit" id= "sub">Send</button>
+  
+ 
+    <input required type="text" value="anonymous" name="name" placeholder="Name"/>
+    <input required type="text" name="Post" placeholder="Post"/>
+    <input required type="hidden" value=0 name="response" />
+    <button type="submit" id="submit-form">Submit</button>
+
+
 </form>
- </div>
- <div id= "gg">
+ <button type="submit" id="Refresh" onclick="location.reload()" >Refresh </button>
+
+
+</div>
+<div id= "gg">
 </div>
 
 </BODY>
