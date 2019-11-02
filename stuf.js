@@ -119,7 +119,6 @@ function responsebutton(responslist){
 var a = return2(responslist);
 var s = unique(a);
 var responsebutton=[];
-console.log(a,s);
 for (var t = 0; t < s.length; t++) {
     
     var count = 0;
@@ -130,7 +129,6 @@ for(var i = 0; i < a.length; ++i){
 responsebutton.push([s[t],count]);
 }
 changebuttonresponse (responsebutton);
-console.log(responsebutton);
 }
 
 function unique(arr) {
@@ -155,7 +153,7 @@ function return2(arr) {
 
 function changebuttonresponse (responsebutton){
 for(var i = 0; i < responsebutton.length; ++i){
-console.log(document.getElementById("buttonin"+responsebutton[i][0]));
+
     $("#buttonin"+responsebutton[i][0]).html("responses:"+responsebutton[i][1]);
 
 }
