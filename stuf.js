@@ -1,18 +1,32 @@
 
-
 var spreadUrl = 'https://spreadsheets.google.com/feeds/cells/19VSEIQlQOKzJ-cxsT_oe5_FCBHKH9KPhUHpsGttlyY0/1/public/values?alt=json-in-script&callback=doData';
 
+function loadcontent(){
 $.ajax({
     url: spreadUrl,
     jsonp: 'doData',
     dataType: 'jsonp'
 });
+}
 
+
+function loadcontent2(){
+setTimeout(func, 5000);
+function func() {
+   loadcontent();
+}
+
+}
+
+setInterval(fun, 1000000);
+function fun() {
+   loadcontent();
+}
 function AddResponseTable(postname,postcontent,postresponse,posttime,postid) {
     postname = postname.replace(/</g, "&lt;").replace(/>/g, "&gt;");
     postcontent = postcontent.replace(/</g, "&lt;").replace(/>/g, "&gt;");
     
- var txt1 = '<table frame="box" id="table'+postid+'"  style="width:98%" align="right"> <tr> <td><p>'+posttime+' '+postname+'</p></td> </tr> <tr> <td><p>'+postcontent+'</p></td> </tr> <tr> <td align="right">  </td> </tr> <tr>  </tr><tr><tr><td> <button id="buttonin'+postid+'" onclick="showhide('+postid+')">respond</button></td></tr><tr><td><form style="display: none" onsubmit="this.submit();this.reset();return false;" autocomplete="off" action="https://script.google.com/macros/s/AKfycbwq47GU3D6MHCQW3qHJEjM02PakpoOu7mC-ABXASrTNYK14Su-w/exec" method="get"  id="formin'+postid+'" target="dummyframe" > <input required type="text" value="anonymous" name="name" placeholder="Name"/> <input required type="text" name="Post" placeholder="Post"/> <input required type="hidden" value='+postid+' name="response" /> <button type="submit" id="submit-form">Submit</button> </form></td></tr><td><table style="display: none" style="width:100%"  id="insidetable'+postid+'"> </table></td></tr> </table>';
+ var txt1 = '<table class="table" frame="box" id="table'+postid+'"  style="width:98%" align="right"> <tr> <td><p>'+posttime+' '+postname+'</p></td> </tr> <tr> <td><p>'+postcontent+'</p></td> </tr> <tr> <td align="right">  </td> </tr> <tr>  </tr><tr><tr><td> <button id="buttonin'+postid+'" onclick="showhide('+postid+')">responde</button></td></tr><tr><td><form style="display: none" onsubmit="this.submit();this.reset();loadcontent2();return false;" autocomplete="off" action="https://script.google.com/macros/s/AKfycbwq47GU3D6MHCQW3qHJEjM02PakpoOu7mC-ABXASrTNYK14Su-w/exec" method="get"  id="formin'+postid+'" target="dummyframe" > <input required type="text" value="anonymous" name="name" placeholder="Name"/> <input required type="text" name="Post" placeholder="Post"/> <input required type="hidden" value='+postid+' name="response" /> <button type="submit" id="submit-form">Submit</button> </form></td></tr><td><table style="display: none" style="width:100%"  id="insidetable'+postid+'"> </table></td></tr> </table>';
    
    
    var IdInsideTable = '#'+'insidetable'+postresponse
@@ -26,7 +40,7 @@ function AddBodyTable(postname,postcontent,posttime,postid) {
 
  
     
- var txt1 = '<table frame="box" id="table'+postid+'"  style="width:100%" align="right"> <tr> <td><p>'+posttime+' '+postname+'</p></td> </tr> <tr> <td><p>'+postcontent+'</p></td> </tr> <tr> <td align="right">  </td> </tr> <tr>  </tr><tr><tr><td> <button id="buttonin'+postid+'" onclick="showhide('+postid+')">respond</button></td></tr><tr><td><form style="display: none" onsubmit="this.submit();this.reset();return false;" autocomplete="off" action="https://script.google.com/macros/s/AKfycbwq47GU3D6MHCQW3qHJEjM02PakpoOu7mC-ABXASrTNYK14Su-w/exec" method="get"  id="formin'+postid+'" target="dummyframe" > <input required type="text" value="anonymous" name="name" placeholder="Name"/> <input required type="text" name="Post" placeholder="Post"/> <input required type="hidden" value='+postid+' name="response" /> <button type="submit" id="submit-form">Submit</button> </form></td></tr><td><table style="display: none" style="width:100%"  id="insidetable'+postid+'"> </table></td></tr> </table>';
+ var txt1 = '<table class="table" frame="box" id="table'+postid+'"  style="width:100%" align="right"> <tr> <td><p>'+posttime+' '+postname+'</p></td> </tr> <tr> <td><p>'+postcontent+'</p></td> </tr> <tr> <td align="right">  </td> </tr> <tr>  </tr><tr><tr><td> <button id="buttonin'+postid+'" onclick="showhide('+postid+')">responde</button></td></tr><tr><td><form style="display: none" onsubmit="this.submit();this.reset();loadcontent2();return false;" autocomplete="off" action="https://script.google.com/macros/s/AKfycbwq47GU3D6MHCQW3qHJEjM02PakpoOu7mC-ABXASrTNYK14Su-w/exec" method="get"  id="formin'+postid+'" target="dummyframe" > <input required type="text" value="anonymous" name="name" placeholder="Name"/> <input required type="text" name="Post" placeholder="Post"/> <input required type="hidden" value='+postid+' name="response" /> <button type="submit" id="submit-form">Submit</button> </form></td></tr><td><table style="display: none" style="width:100%"  id="insidetable'+postid+'"> </table></td></tr> </table>';
    
   
   
@@ -69,13 +83,13 @@ handleResults(results);
 }
 
 
-
-
 function handleResults(spreadsheetArray) {
+
+var alredy = $('.table').length+1;
     var i;
     var responslist = [];
 
-for (i = 1; i < spreadsheetArray.length; i++) {
+for (i = alredy; i < spreadsheetArray.length; i++) {
 
 if (spreadsheetArray[i][2] == 0){
 AddBodyTable(spreadsheetArray[i][0],spreadsheetArray[i][1],spreadsheetArray[i][3],spreadsheetArray[i][4]); 
@@ -153,10 +167,11 @@ function return2(arr) {
 
 function changebuttonresponse (responsebutton){
 for(var i = 0; i < responsebutton.length; ++i){
-
     $("#buttonin"+responsebutton[i][0]).html("responses:"+responsebutton[i][1]);
 
 }
 }
 
+
+loadcontent();
 
