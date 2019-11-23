@@ -5,7 +5,7 @@
 <HEAD>
 
 <TITLE>Randi</TITLE>
-<link rel="icon" type="image/gif/png" href="Tadas website.png">
+<link rel="icon" type="image/gif/png" href="1.png">
 <script src="jquery-3.4.1.js"></script>
 <script src="stuf.js"></script>
  <meta charset="UTF-8">
@@ -13,6 +13,8 @@
   <meta name="keywords" content="randi">
   <meta name="author" content="Randi">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
  </HEAD>
 
 <BODY>
@@ -24,7 +26,8 @@
 
 
 <form onsubmit="this.submit();this.reset();loadcontent2();return false;" autocomplete="off" action="https://script.google.com/macros/s/AKfycbwq47GU3D6MHCQW3qHJEjM02PakpoOu7mC-ABXASrTNYK14Su-w/exec" method="get" id="formin0" target="dummyframe" >  
-  
+    <div class="g-recaptcha" data-sitekey="6LcMRMQUAAAAAKnjYjPwCloTNA14tTenX3TGyvPd"></div>
+
  
     <input required type="text" value="anonymous" name="name" placeholder="Name"/>
     <input required type="text" name="Post" placeholder="Post"/>
