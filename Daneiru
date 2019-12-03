@@ -1,9 +1,11 @@
 <!doctype html>
 
 <html>
+
 <head>
   <title>Daniel's Hidden Page</title>
   <link rel="icon" type="image/gif/png" href="1.png">
+  <link rel="stylesheet" href="Da_styles.css">
 </head>
 
 <style>
@@ -12,13 +14,19 @@ body {
   background-size: 100% 100%;
 }
 </style>
-
 <body style="background-color:black;">
 
 <style>
 h1{ color: white;}
 p{ color:white;}
 </style>
+
+<div class="text-effect">
+  <h1 class="neon" data-text="Neon" contenteditable>Neon</h1>
+  <div class="gradient"></div>
+  <div class="spotlight"></div>
+</div>
+
 
 </body>
 </html>
