@@ -28,23 +28,20 @@ p{ color:white;}
 
 
 <div>
-<div>
  <style>
   body {
-    margin: 0;
-    height: 100vh;
+    margin: auto;
+    height: auto;
     display: flex;
     align-items: top;
     justify-content: center;
     background-color: black;
 }
-
 .neon {
     position: relative;
     overflow: hidden;
     filter: brightness(200%);
 }
-
 .text {
     background-color: black;
     color: white;
@@ -55,7 +52,6 @@ p{ color:white;}
     position: relative;
     user-select: none;
 }
-
 .text::before {
     content: attr(data-text);
     position: absolute;
@@ -63,7 +59,6 @@ p{ color:white;}
     filter: blur(0.02em);
     mix-blend-mode: difference;
 }
-
 .gradient {
     position: absolute;
     background: linear-gradient(45deg, blue, cyan, orange,cyan, blue);
@@ -73,7 +68,6 @@ p{ color:white;}
     bottom: 0;
     mix-blend-mode: multiply;
 }
-
 .spotlight {
     position: absolute;
     top: -100%;
@@ -94,7 +88,6 @@ p{ color:white;}
     animation: light 5s linear infinite;
     mix-blend-mode: color-dodge;
 }
-
 @keyframes light {
     to {
         transform: translate(50%, 50%);
@@ -108,15 +101,10 @@ p{ color:white;}
   <span class="spotlight"></span>
 </div>
   </div>
-  </div>
 
-
-  <!--
-  
-<center> 
+<!--
 <div>
-  <style class="cp-pen-styles">
-
+<style class="cp-pen-styles">
 @import url(https://fonts.googleapis.com/css?family=Ubuntu:300);
 .anim-text-flow,
 .anim-text-flow-hover:hover {
@@ -764,11 +752,10 @@ p{ color:white;}
   -webkit-animation-delay: 0s;
           animation-delay: 0s;
 }
-
 body {
   background-color: #1a1a1a;
   color: #fefefe;
-  font-family: 'Ubuntu';
+  font-family: 'Comic Sans';
   text-transform: uppercase;
   letter-spacing: 0.2em;
   font-size: 2.0em;
@@ -776,8 +763,9 @@ body {
   font-weight: 300;
   text-rendering: optimizeLegibility;
   text-align: center;
+  align-items: center;
+  justify-content: center;
 }
-
 .container {
   position: absolute;
   top: 50%;
@@ -786,31 +774,28 @@ body {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
 }
-
 .txt {
   display: block;
 }
+</style>
 
-
-
-        </style>
-<body style="background-color:transparent;">
+<body style="background-color:transparent">
 <div class="container">
-<span class="txt anim-text-flow">How are you? Bacon ipsum dolor sit amet.</span>
+<span class="txt anim-text-flow">Once I was seven years old</span>
 </div>
-<script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script id="rendered-js">
           $('.txt').html(function (i, html) {
   var chars = $.trim(html).split("");
-
   return '<span>' + chars.join('</span><span>') + '</span>';
 });
-          //# sourceURL=pen.js
         </script>
 </body>
   </div>
-  </center>
-  -->
+-->
+
+
+
   </body>
 </html>
-
