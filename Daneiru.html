@@ -25,25 +25,6 @@ h1{ color: white;}
 p{ color:white;}
 </style>
 
-<div class="text-effect">
-  <h1 class="neon" data-text="Neon" contenteditable>HOHOHO TRAVELLERS!!!</h1>
-  <div class="gradient"></div>
-  <div class="spotlight"></div>
-</div>
-
-
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
-<link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
-<title>CodePen - CSS-only shimmering neon text</title>
-<link href="https://fonts.googleapis.com/css?family=Lato:700" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <style>
   .text-effect {
   overflow: hidden;
@@ -51,7 +32,6 @@ p{ color:white;}
   -webkit-filter: contrast(110%) brightness(190%);
           filter: contrast(110%) brightness(190%);
 }
-
 .neon {
   position: relative;
   background: black;
@@ -70,7 +50,6 @@ p{ color:white;}
 .neon::after {
   mix-blend-mode: difference;
 }
-
 .gradient,
 .spotlight {
   position: absolute;
@@ -81,12 +60,10 @@ p{ color:white;}
   pointer-events: none;
   z-index: 10;
 }
-
 .gradient {
   background: linear-gradient(45deg, red, blue);
   mix-blend-mode: multiply;
 }
-
 .spotlight {
   -webkit-animation: light 5s infinite linear;
           animation: light 5s infinite linear;
@@ -95,14 +72,12 @@ p{ color:white;}
   left: -100%;
   mix-blend-mode: color-dodge;
 }
-
 @-webkit-keyframes light {
   100% {
     -webkit-transform: translate3d(50%, 50%, 0);
             transform: translate3d(50%, 50%, 0);
   }
 }
-
 @keyframes light {
   100% {
     -webkit-transform: translate3d(50%, 50%, 0);
@@ -119,7 +94,6 @@ p{ color:white;}
   outline: none;
   border: 1px dotted white;
 }
-
 body {
   background: black;
   display: flex;
@@ -129,30 +103,15 @@ body {
   align-items: center;
 }
 </style>
-<script>
-  window.console = window.console || function(t) {};
-</script>
-<script>
-  if (document.location.search.match(/type=embed/gi)) {
-    window.parent.postMessage("resize", "*");
-  }
-</script>
-</head>
-<body translate="no">
+  
+  
 <div class="text-effect">
-
-<h1 class="neon" data-text="Neon" contenteditable>Neon</h1>
-<div class="gradient"></div>
-<div class="spotlight"></div>
+  <h1 class="neon" data-text="Neon" contenteditable>HOHOHO TRAVELLERS!!!</h1>
+  <div class="gradient"></div>
+  <div class="spotlight"></div>
 </div>
-<script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
-<script id="rendered-js">
-      // This is just to auto-update the data-text if you're editing it directly on the page and is not required for the actual effect
-$('[data-text]').on('keyup', function () {
-  $(this).attr('data-text', $(this).text());
-});
-      //# sourceURL=pen.js
-    </script>
+
+
 </body>
 </html>
+
