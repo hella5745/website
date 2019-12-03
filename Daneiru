@@ -1,0 +1,24 @@
+<!doctype html>
+
+<html>
+<head>
+  <title>Daniel's Hidden Page</title>
+  <link rel="icon" type="image/gif/png" href="1.png">
+</head>
+
+<style>
+body {
+  background-image: url('they were guilty 2.png');
+  background-size: 100% 100%;
+}
+</style>
+
+<body style="background-color:black;">
+
+<style>
+h1{ color: white;}
+p{ color:white;}
+</style>
+
+</body>
+</html>
